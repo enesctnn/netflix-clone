@@ -5,7 +5,10 @@ export default {
     extend: {
       boxShadow: {
         bottom: '0 3px 10px rgba(0,0,0,1)',
-        top: '0 -3px 10px rgba(0,0,0,1)',
+      },
+      colors: {
+        'red-netflix-light': 'rgb(229 ,9 ,20)',
+        'red-netflix-dark': 'rgb(178, 7, 16)',
       },
     },
   },

@@ -4,7 +4,7 @@ import Button from './UI/Button';
 function NetflixShowImage() {
   return (
     <div className="flex flex-col w-screen h-105 relative text-center">
-      <div className="absolute flex flex-col text-center top-32 w-full gap-3 text-white font-medium z-10">
+      <div className="absolute flex flex-col text-center top-40 w-full gap-3 text-white font-medium z-10">
         <h2 className="text-3xl font-bold">
           Unlimited movies, TV shows, and more
         </h2>
@@ -23,7 +23,6 @@ function NetflixShowImage() {
       </div>
       <div className="absolute top-0 h-10 w-full bg-gradient-to-b from-black/90 to-black/75 shadow-bottom -z-10" />
       <img className="-z-20" src={nfbg} alt="netflix background movies/shows" />
-      <div className="absolute bg-gradient-to-t from-black/90 to-black/75 bottom-0 h-2/6 w-full shadow-top -z-10" />
     </div>
   );
 }
