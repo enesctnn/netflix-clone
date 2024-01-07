@@ -9,9 +9,9 @@ const Header: React.FC<{}> = () => {
     <motion.header
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="fixed top-0 w-screen h-24"
+      className="fixed top-0 w-screen h-24 z-50"
     >
-      <div className="h-full flex flex-row bg-gradient-to-t from-stone-50 to-stone-600 shadow-md shadow-stone-50 justify-between px-5">
+      <div className="h-full flex flex-row justify-between px-5">
         <img src={nflogo} alt="netflix logo" />
         <div className="flex flex-row items-center gap-5">
           <div className="relative">

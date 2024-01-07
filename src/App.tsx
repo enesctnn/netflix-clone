@@ -6,11 +6,14 @@ import {
 } from 'react-router-dom';
 
 import RootLayout from './pages/Root';
+import WelcomePage from './pages/Welcome';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" id="root" element={<RootLayout />}></Route>
+      <Route path="/" id="root" element={<RootLayout />}>
+        <Route index element={<WelcomePage />} />
+      </Route>
     </>
   )
 );

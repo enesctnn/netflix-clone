@@ -5,7 +5,7 @@ const Button: React.FC<{ children: React.ReactNode; className?: string }> = (
 ) => {
   return (
     <button
-      className={`px-4 py-1 bg-red-600 rounded-md text-white ${props.className}`}
+      className={`px-4 py-1 bg-red-600 rounded-md text-white hover:bg-red-700 ${props.className}`}
     >
       {props.children}
     </button>
