@@ -9,7 +9,7 @@ const Header: React.FC<{}> = () => {
     <motion.header
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="fixed top-0 w-screen h-24 z-50"
+      className="w-screen h-24 z-50 pr-10"
     >
       <div className="h-full flex flex-row justify-between px-5">
         <img src={nflogo} alt="netflix logo" />

@@ -10,6 +10,9 @@ export default {
         'red-netflix-light': 'rgb(229 ,9 ,20)',
         'red-netflix-dark': 'rgb(178, 7, 16)',
       },
+      fontFamily: {
+        opensans: "'Open Sans',sans-serif",
+      },
     },
   },
   plugins: [],
