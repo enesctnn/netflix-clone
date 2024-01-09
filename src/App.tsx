@@ -8,6 +8,7 @@ import {
 import RootLayout from './pages/Root';
 import WelcomePage from './pages/Welcome';
 import ErrorPage from './pages/Error';
+import WrongNavigationPage from './pages/WrongNavigation';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
         errorElement={<ErrorPage />}
       >
         <Route index element={<WelcomePage />} />
+        <Route path="*" element={<WrongNavigationPage />} />
       </Route>
     </>
   )
