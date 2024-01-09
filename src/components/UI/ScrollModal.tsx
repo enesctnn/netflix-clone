@@ -8,7 +8,6 @@ const ScrollModal: FunctionComponent<{
   return (
     <div className=" text-white">
       <div className="bg-gray-500/40 w-screen h-2" />
-
       <div className="py-20 flex flex-col items-center">
         <section className="text-center flex flex-col gap-5">
           <h1 className="whitespace-nowrap text-4xl font-bold">
