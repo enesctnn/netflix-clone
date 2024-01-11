@@ -3,6 +3,7 @@ import boxPic from '../assets/boxshot.png';
 
 import ScrollModal from './UI/ScrollModal';
 
+
 function ExampleTvShow() {
   return (
     <ScrollModal
@@ -19,6 +20,7 @@ function ExampleTvShow() {
           <section className="w-72">
             <h2>Stranger Things</h2>
             <p className="text-blue-600">Downloading...</p>
+            
           </section>
         </div>
       </div>

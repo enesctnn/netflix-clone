@@ -9,6 +9,8 @@ import RootLayout from './pages/Root';
 import WelcomePage from './pages/Welcome';
 import ErrorPage from './pages/Error';
 import WrongNavigationPage from './pages/WrongNavigation';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { queryClient } from './util/http';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,7 +29,11 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  );
 }
 
 export default App;
