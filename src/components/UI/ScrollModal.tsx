@@ -4,11 +4,14 @@ const ScrollModal: FunctionComponent<{
   header?: string;
   label?: string;
   children: React.ReactNode;
+  className?: string;
 }> = (props) => {
   return (
     <div className=" text-white">
       <div className="bg-gray-400/30 w-screen h-2" />
-      <div className="py-20 flex flex-col items-center gap-10">
+      <div
+        className={`py-20 flex flex-col items-center gap-10 ${props.className}`}
+      >
         <section className="text-center flex flex-col gap-5">
           <h1 className="whitespace-nowrap text-4xl font-bold">
             {props.header}

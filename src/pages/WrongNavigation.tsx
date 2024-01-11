@@ -9,11 +9,9 @@ function WrongNavigationPage() {
       <Header />
       <motion.main
         initial={{
-          y: -1000,
           scale: 0,
         }}
         animate={{
-          y: 0,
           scale: 1,
         }}
         transition={{ type: 'spring', duration: 1 }}
