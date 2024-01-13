@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 
 import { Link } from 'react-router-dom';
-import Header from '../components/Header';
+import Header from '../components/UI/Header';
 
 function WrongNavigationPage() {
   return (
     <>
-      <Header />
+      <Header isWrongWay />
       <motion.main
         initial={{
           scale: 0,

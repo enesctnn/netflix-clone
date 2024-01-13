@@ -13,6 +13,9 @@ export default {
       fontFamily: {
         opensans: "'Open Sans',sans-serif",
       },
+      spacing: {
+        24: '100px',
+      },
     },
   },
   plugins: [],

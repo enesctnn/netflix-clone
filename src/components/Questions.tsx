@@ -6,7 +6,7 @@ import Question from './Question';
 function Questions() {
   const [expanded, setExpanded] = useState<null | number>(null);
 
-  const { data, isPending } = useQuery({
+  const { data, isPending, isError } = useQuery({
     queryKey: ['questions'],
     queryFn: ({ signal }) => fetchFrequentlyQuestions({ signal }),
   });
@@ -35,6 +35,11 @@ function Questions() {
         </ul>
       )}
       {isPending && <p className="text-blue-600 text-xl">Loading...</p>}
+      {isError && (
+        <h1 className="text-red-netflix-light font-bold text-2xl">
+          Couldn't fetch Questions!
+        </h1>
+      )}
     </>
   );
 }

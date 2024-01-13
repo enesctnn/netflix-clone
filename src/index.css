@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -13,9 +29,22 @@ input:-webkit-autofill:active {
 
 @layer base {
   html {
-    @apply overflow-x-hidden font-opensans;
+    @apply font-opensans;
   }
   body {
     @apply bg-black;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply font-bold;
+  }
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
   }
 }

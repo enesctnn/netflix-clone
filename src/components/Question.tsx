@@ -7,6 +7,7 @@ const Question: React.FC<{
   isExpanded: boolean;
   onExpand: () => void;
 }> = (props) => {
+
   const { item } = props;
   return (
     <motion.li key={item.id} exit={{ y: -30, opacity: 0 }}>

@@ -61,22 +61,22 @@ function GetStartedInput() {
             type="email"
             name="email"
             required
-            className={`bg-black/80 pl-2 py-4 rounded-md w-80 border-solid border-[1px] shadow-md shadow-black outline-offset-2
+            className={`bg-black/80 pl-4 pt-5 pb-2 rounded-md w-80 border-solid border-[1px] shadow-md shadow-black outline-offset-2
             ${inputFilled === null ? 'border-white ' : ''}
             ${
               inputFilled === false
-                ? 'border-red-netflix-light'
-                : 'border-green-400'
+                ? 'border-red-netflix-light '
+                : 'border-green-400 '
             }`}
           />
           <motion.span
-            className="whitespace-nowrap text-gray-400 absolute left-2 top-4"
+            className="whitespace-nowrap text-gray-400 absolute left-4 top-4"
             animate={
               inputState.isClicked
                 ? {
                     x: -15,
                     scale: 0.7,
-                    y: -18,
+                    y: -15,
                   }
                 : {
                     x: 0,

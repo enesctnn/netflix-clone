@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
 
 import { Link, useRouteError } from 'react-router-dom';
-import Header from '../components/Header';
+import Header from '../components/UI/Header';
 
 function ErrorPage() {
   const error = useRouteError() as Error;
   return (
     <>
-      <Header />
+      <Header isWelcome={false} />
       <motion.main
         initial={{
           scale: 0,
