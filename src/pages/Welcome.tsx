@@ -1,5 +1,5 @@
 import React from 'react';
-import NetflixShowImage from '../components/NetflixShowImage';
+
 import ContentLayer from '../components/UI/ContentLayer';
 import SignInWelcome from '../components/SignInWelcome';
 import ExampleTvShow from '../components/ExampleTvShow';
@@ -15,9 +15,8 @@ import Footer from '../components/Footer';
 const WelcomePage: React.FC<{}> = () => {
   return (
     <>
-      <main>
+      <main >
         <SignInWelcome />
-        <NetflixShowImage />
         <ContentLayer
           header="Enjoy on Your TV"
           label="Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray

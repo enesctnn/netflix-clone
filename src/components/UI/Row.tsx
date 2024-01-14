@@ -6,7 +6,7 @@ import { Loading } from './Animation';
 
 const Row: FunctionComponent<{
   title: string;
-  fetchUrl: string;
+  fetchUrl: string;  
   isLargeRow?: boolean;
   genre: string;
 }> = (props) => {

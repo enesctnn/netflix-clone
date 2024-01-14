@@ -35,7 +35,7 @@ const Header: React.FC<{
   }
   if (props.isWelcome) {
     content = (
-      <div className="h-full flex flex-row justify-between px-5">
+      <div className="h-full flex flex-row justify-between px-5 z-50">
         <img src={nflogo} alt="netflix logo" />
         <div className="flex flex-row items-center gap-5">
           <div className="relative">
@@ -62,8 +62,8 @@ const Header: React.FC<{
     <motion.header
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className={`h-20 z-50 ${
-        props.isHome ? 'fixed top-0 left-0 right-0' : '-mb-24 pr-10'
+      className={` h-20 z-50 ${
+        props.isHome ? 'fixed top-0 left-0 right-0' : '-mb-24 pr-10 relative'
       }`}
     >
       {content}
