@@ -33,3 +33,7 @@ const Animation = () => {
 };
 
 export default Animation;
+
+export function Loading(){
+  return <Lottie className="h-24 mx-auto" animationData={installing} />
+}

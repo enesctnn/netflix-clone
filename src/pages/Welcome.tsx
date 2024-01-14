@@ -16,14 +16,15 @@ const WelcomePage: React.FC<{}> = () => {
   return (
     <>
       <main>
-        <NetflixShowImage />
         <SignInWelcome />
+        <NetflixShowImage />
         <ContentLayer
           header="Enjoy on Your TV"
           label="Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray
     players, and more."
           img={tv}
           videoSrc="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v"
+          classVideo="top-24 left-20"
         />
         <ExampleTvShow />
         <ContentLayer
@@ -31,7 +32,8 @@ const WelcomePage: React.FC<{}> = () => {
           label="Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV."
           img={appleTv}
           videoSrc="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices.m4v"
-          className="h-[580px] mt-10 object-cover"
+          classImg="h-[580px] mt-10 object-cover"
+          classVideo="top-24"
         />
         <ContentLayer
           header="Create profiles for kids"

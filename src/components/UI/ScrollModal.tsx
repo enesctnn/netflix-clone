@@ -8,7 +8,7 @@ const ScrollModal: FunctionComponent<{
   className?: string;
 }> = (props) => {
   return (
-    <div className=" text-white">
+    <div className=" text-white bg-black -z-10>">
       <div className="bg-gray-400/30 w-screen h-2" />
       <div
         className={` flex flex-col gap-10 ${

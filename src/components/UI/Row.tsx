@@ -1,9 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { FunctionComponent, WheelEvent, useRef } from 'react';
 import axios from '../../util/axios';
-import Lottie from 'lottie-react';
 import { motion } from 'framer-motion';
-import loading from '../../assets/installing.json';
+import { Loading } from './Animation';
 
 const Row: FunctionComponent<{
   title: string;
@@ -29,12 +28,12 @@ const Row: FunctionComponent<{
 
   return (
     <section className="w-screen ml-5">
-      <h1>{props.title}</h1>
-      {isPending && <Lottie className="h-24 mx-auto" animationData={loading} />}
+      <h1 className="text-2xl">{props.title}</h1>
+      {isPending && <Loading />}
       {data && (
         <motion.div
           ref={container}
-          className="flex flex-row gap-2 overflow-y-hidden overflow-x-scroll p-5 "
+          className="flex flex-row gap-2 overflow-y-hidden overflow-x-scroll p-5 container_div"
           onWheel={handleHorizontalScroll}
         >
           {data.map((movie) => (
@@ -48,7 +47,7 @@ const Row: FunctionComponent<{
                 props.isLargeRow ? 'max-h-64' : 'max-h-24'
               }`}
               whileHover={{ scale: props.isLargeRow ? 1.09 : 1.08 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.3, type: 'tween' }}
             />
           ))}
         </motion.div>
@@ -57,7 +56,7 @@ const Row: FunctionComponent<{
   );
 };
 
-interface Movie {
+export interface Movie {
   backdrop_path: string;
   first_air_date: string;
   genre_ids: number[];
@@ -79,7 +78,9 @@ const fetchMovies = async ({
   url: string;
   signal: AbortSignal;
 }): Promise<Movie[]> => {
-  const { data } = await axios.get(url, { signal });
+  const { data } = await axios.get(url, {
+    signal,
+  });
   return await data.results;
 };
 

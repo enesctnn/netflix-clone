@@ -6,7 +6,8 @@ const ContentLayer: FunctionComponent<{
   label: string;
   img: string;
   videoSrc?: string;
-  className?: string;
+  classImg?: string;
+  classVideo?: string;
 }> = (props) => {
   return (
     <ScrollModal header={props.header} label={props.label}>
@@ -14,10 +15,10 @@ const ContentLayer: FunctionComponent<{
         <img
           src={props.img}
           alt="tv unit for play video inside"
-          className={props.className}
+          className={`z-20 ` + props.classImg}
         />
         <video
-          className="absolute top-24 left-30 -z-10 "
+          className={`absolute z-10 ${props.classVideo}`}
           autoPlay
           playsInline
           muted

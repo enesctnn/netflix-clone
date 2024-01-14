@@ -13,16 +13,16 @@ const Header: React.FC<{
   let content;
   const { scrollY } = useScroll();
 
-  const bgOpacity = useTransform(scrollY, [0, 300], [0, 1]);
+  const bgOpacity = useTransform(scrollY, [150, 400], [0, 1]);
 
   if (props.isHome) {
     content = (
-      <div className="h-full flex flex-row justify-between w-screen px-5 relative z-50">
+      <div className="h-full flex flex-row justify-between px-5 relative">
+        <img src={nflogo} alt="netflix logo" className="z-10" />
         <motion.div
           style={{ opacity: bgOpacity }}
-          className="absolute h-full bg-black w-full -z-10"
+          className="absolute left-0 right-0 h-full bg-gradient-to-t from-[#111] to-black"
         />
-        <img src={nflogo} alt="netflix logo" />
       </div>
     );
   }
@@ -50,7 +50,9 @@ const Header: React.FC<{
             </select>
             <IoLanguage className="absolute top-2 left-2 text-white text-lg" />
           </div>
-          <Button className="font-medium">Sign In</Button>
+          <Button className="font-medium" isRed>
+            Sign In
+          </Button>
         </div>
       </div>
     );
@@ -60,8 +62,8 @@ const Header: React.FC<{
     <motion.header
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className={`w-screen h-20 pr-10 -mb-24 z-50 ${
-        props.isHome ? 'fixed top-0' : ''
+      className={`h-20 z-50 ${
+        props.isHome ? 'fixed top-0 left-0 right-0' : '-mb-24 pr-10'
       }`}
     >
       {content}

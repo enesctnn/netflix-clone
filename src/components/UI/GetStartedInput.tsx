@@ -93,7 +93,9 @@ function GetStartedInput() {
             </p>
           )}
         </div>
-        <Button className="max-h-[58px] text-2xl px-7">Get Started &gt;</Button>
+        <Button className="max-h-[58px] text-2xl px-7" isRed>
+          Get Started &gt;
+        </Button>
       </menu>
     </>
   );
