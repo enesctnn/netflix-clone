@@ -1,16 +1,20 @@
 import { useQuery } from '@tanstack/react-query';
-import { FunctionComponent, WheelEvent, useRef } from 'react';
+import { FunctionComponent, WheelEvent, useRef, useState } from 'react';
 import axios from '../../util/axios';
 import { motion } from 'framer-motion';
 import { Loading } from './Animation';
+import Youtube from 'react-youtube';
+import movieTrailer from 'movie-trailer';
 
 const Row: FunctionComponent<{
   title: string;
-  fetchUrl: string;  
+  fetchUrl: string;
   isLargeRow?: boolean;
   genre: string;
 }> = (props) => {
   const container = useRef<HTMLDivElement>(null);
+  const [trailerUrl, setTrailerUrl] = useState<string | null>('');
+  const [currentMovieId, setCurrentMovieId] = useState<number | null>(null);
 
   const { data, isPending } = useQuery({
     queryKey: ['movies', props.genre],
@@ -24,6 +28,38 @@ const Row: FunctionComponent<{
       left: container.current.scrollLeft + scrollAmount,
       behavior: 'smooth',
     });
+  };
+
+  const handleMovieClick = async (movie: Movie) => {
+    if (trailerUrl && currentMovieId === movie?.id) {
+      setTrailerUrl('');
+      setCurrentMovieId(null);
+    } else {
+      console.log(movie);
+      movieTrailer(
+        movie?.name ||
+          movie?.title ||
+          movie?.original_name ||
+          movie?.original_title ||
+          ''
+      )
+        .then((url: string) => {
+          //https://www.youtube.com/watch?v=XtMThy9QKqU
+          console.log(url);
+          const urlParams = new URLSearchParams(new URL(url).search);
+          setTrailerUrl(urlParams.get('v'));
+        })
+        .catch((error: Error) => console.log(error.message));
+    }
+    setCurrentMovieId(movie?.id);
+  };
+  const opts = {
+    height: '390',
+    width: '100%',
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 1,
+    },
   };
 
   return (
@@ -42,16 +78,24 @@ const Row: FunctionComponent<{
               src={`https://image.tmdb.org/t/p/original/${
                 props.isLargeRow ? movie.poster_path : movie.backdrop_path
               }`}
-              alt={movie.name}
+              alt={
+                movie.name ||
+                movie.title ||
+                movie.original_name ||
+                movie.original_title ||
+                ''
+              }
               className={`w-full  object-contain ${
                 props.isLargeRow ? 'max-h-64' : 'max-h-24'
               }`}
               whileHover={{ scale: props.isLargeRow ? 1.09 : 1.08 }}
               transition={{ duration: 0.3, type: 'tween' }}
+              onClick={() => handleMovieClick(movie)}
             />
           ))}
         </motion.div>
       )}
+      {trailerUrl && <Youtube videoId={trailerUrl} opts={opts} />}
     </section>
   );
 };
@@ -61,16 +105,19 @@ export interface Movie {
   first_air_date: string;
   genre_ids: number[];
   id: number;
-  name: string;
+  name: string | null;
   origin_country: string[];
   original_language: string;
-  original_name: string;
+  original_name: string | null;
   overview: string;
   popularity: number;
   poster_path: string;
   vote_average: number;
   vote_count: number;
+  title: string | null;
+  original_title: string | null;
 }
+
 const fetchMovies = async ({
   url,
   signal,

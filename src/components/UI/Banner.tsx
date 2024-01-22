@@ -14,7 +14,7 @@ function Banner() {
     'bg-black/60 px-10 py-2 hover:bg-gray-400/80 hover:text-black rounded-sm duration-300 font-bold';
 
   if (isPending) {
-    <Loading />;
+    return <Loading />;
   }
   const truncate = (str: string, n: number) =>
     str.length > n ? str.substr(0, n - 1) + '...' : str;
@@ -34,11 +34,11 @@ function Banner() {
           <button className={buttonClass}>Play</button>
           <button className={buttonClass}>My List</button>
         </menu>
-        <h2 className="w-100 pt-4 text-lg">
+        <h2 className="min-w-96 max-w-100 pt-4 text-lg">
           {movie && truncate(movie?.overview, 150)}
         </h2>
       </div>
-      <div className="mt-2 bg-gradient-to-t from-[#111] to-transparent h-30" />
+      <div className="bg-gradient-to-t from-[#111] to-transparent h-32 -mt-1" />
     </header>
   );
 }
